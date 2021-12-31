@@ -235,6 +235,7 @@ namespace YazilimSinama
             this.rdoSHA.TabIndex = 21;
             this.rdoSHA.Text = "SHA-256";
             this.rdoSHA.UseSelectable = true;
+            this.rdoSHA.CheckedChanged += new System.EventHandler(this.rdoSHA_CheckedChanged);
             // 
             // rdoSPN
             // 
@@ -246,6 +247,7 @@ namespace YazilimSinama
             this.rdoSPN.TabIndex = 22;
             this.rdoSPN.Text = "SPN";
             this.rdoSPN.UseSelectable = true;
+            this.rdoSPN.CheckedChanged += new System.EventHandler(this.rdoSPN_CheckedChanged);
             // 
             // txtKey
             // 

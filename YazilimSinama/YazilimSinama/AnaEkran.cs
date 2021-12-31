@@ -52,7 +52,6 @@ namespace YazilimSinama
         private void AnaEkran_Load(object sender, EventArgs e)
         {
             connect();
-            rdoSHA.Checked = true;
             txtKey.Enabled = false;
             txtLocalIp.Enabled = false;
             txtRemoteIp.Enabled = false;
@@ -178,17 +177,36 @@ namespace YazilimSinama
             msg.Ziple(fileToBeGZipped, gzipFileName);    //seçilen dosyayı sıkıştırır
         }
 
+        private void rdoSHA_CheckedChanged(object sender, EventArgs e)
+        {
+            rdoSPN.Enabled = false;
+        }
+
+        private void rdoSPN_CheckedChanged(object sender, EventArgs e)
+        {
+            rdoSHA.Enabled = false;
+        }
+
         private void btnDecompress_Click(object sender, EventArgs e)
         {
             Message msg = new Message();
-            OpenFileDialog theDialog = new OpenFileDialog();
-            theDialog.Title = "Open Text File";
-            theDialog.Filter = "All files (*.*)|*.*";    // dosya seçim işlemi
-            theDialog.InitialDirectory = @"C:\";
-            if (theDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                lblFile.Text = theDialog.FileName.ToString();    // seçilen zip dosyasının yolunu gösterir
+                OpenFileDialog theDialog = new OpenFileDialog();
+                theDialog.Title = "Open Text File";
+                theDialog.Filter = "All files (*.*)|*.*";    // dosya seçim işlemi
+                theDialog.InitialDirectory = @"C:\";
+                if (theDialog.ShowDialog() == DialogResult.OK)
+                {
+                    lblFile.Text = theDialog.FileName.ToString();    // seçilen zip dosyasının yolunu gösterir
+                }
             }
+            catch(Exception )
+            {
+                MessageBox.Show("Lütfen dosya seçiniz");
+            }
+
+            
 
             FileInfo fileToBeGZipped = new FileInfo(lblFile.Text);
             FileInfo gzipFileName = new FileInfo(string.Concat(fileToBeGZipped.FullName));

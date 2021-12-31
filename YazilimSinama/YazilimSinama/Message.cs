@@ -106,46 +106,61 @@ namespace YazilimSinama
 
         public string Ziple(FileInfo fileToBeGZipped, FileInfo gzipFileName)    //seçilen dosyayı sıkıştırma
         {
-            using (FileStream fileToBeZippedAsStream = fileToBeGZipped.OpenRead())    //dosyayı açma ve okuma işlemi
+            try
             {
-                using (FileStream gzipTargetAsStream = gzipFileName.Create())    //sıkıştırılacak dosyayı oluşturma
+                using (FileStream fileToBeZippedAsStream = fileToBeGZipped.OpenRead())    //dosyayı açma ve okuma işlemi
                 {
-                    using (GZipStream gzipStream = new GZipStream(gzipTargetAsStream, CompressionMode.Compress))    // dosyayı sıkıştırma
+                    using (FileStream gzipTargetAsStream = gzipFileName.Create())    //sıkıştırılacak dosyayı oluşturma
                     {
-                        try
+                        using (GZipStream gzipStream = new GZipStream(gzipTargetAsStream, CompressionMode.Compress))    // dosyayı sıkıştırma
                         {
-                            fileToBeZippedAsStream.CopyTo(gzipStream);
-                        }
-                        catch (Exception ex)                            //Sıkıştırmada hata çıkarsa 
-                        {
-                            Console.WriteLine(ex.Message);
+                            try
+                            {
+                                fileToBeZippedAsStream.CopyTo(gzipStream);
+                            }
+                            catch (Exception ex)                            //Sıkıştırmada hata çıkarsa 
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
                         }
                     }
                 }
             }
+            catch(Exception)
+            {
+                MessageBox.Show("Lütfen dosya seçiniz");
+            }
+
             return gzipFileName.FullName;
         }
 
         public string Cozumle(FileInfo fileToBeGZipped, FileInfo gzipFileName)    // zip halindeki dosyayı açma
         {
-            using (FileStream fileToDecompressAsStream = gzipFileName.OpenRead())
+            try
             {
-                string decompressedFileName = @"c:\\Users\\Public\\Desktop\\compressed.txt";    //dosyayı masaüstüne çıkarma
-                using (FileStream decompressedStream = File.Create(decompressedFileName))    //Dosya oluşturma
+                using (FileStream fileToDecompressAsStream = gzipFileName.OpenRead())
                 {
-                    File.SetAttributes(decompressedFileName, FileAttributes.Normal);
-                    using (GZipStream decompressionStream = new GZipStream(fileToDecompressAsStream, CompressionMode.Decompress))    //dosyayı zipten çıkarma
+                    string decompressedFileName = @"c:\\Users\\Public\\Desktop\\compressed.txt";    //dosyayı masaüstüne çıkarma
+                    using (FileStream decompressedStream = File.Create(decompressedFileName))    //Dosya oluşturma
                     {
-                        try
+                        File.SetAttributes(decompressedFileName, FileAttributes.Normal);
+                        using (GZipStream decompressionStream = new GZipStream(fileToDecompressAsStream, CompressionMode.Decompress))    //dosyayı zipten çıkarma
                         {
-                            decompressionStream.CopyTo(decompressedStream);
-                        }
-                        catch (Exception ex)                                //Ayıklarken sorun çıkarsa
-                        {
-                            Console.WriteLine(ex.Message);
+                            try
+                            {
+                                decompressionStream.CopyTo(decompressedStream);
+                            }
+                            catch (Exception ex)                                //Ayıklarken sorun çıkarsa
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
                         }
                     }
                 }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Lütfen dosya seçiniz");
             }
             return gzipFileName.FullName;
         }
