@@ -1,0 +1,14 @@
+C:\Users\Eray DUMAN\source\repos\YazilimSinama\YazilimSinama\bin\Debug\YazilimSinama.exe.config
+C:\Users\Eray DUMAN\source\repos\YazilimSinama\YazilimSinama\bin\Debug\YazilimSinama.exe
+C:\Users\Eray DUMAN\source\repos\YazilimSinama\YazilimSinama\bin\Debug\YazilimSinama.pdb
+C:\Users\Eray DUMAN\source\repos\YazilimSinama\YazilimSinama\bin\Debug\MetroFramework.Design.dll
+C:\Users\Eray DUMAN\source\repos\YazilimSinama\YazilimSinama\bin\Debug\MetroFramework.dll
+C:\Users\Eray DUMAN\source\repos\YazilimSinama\YazilimSinama\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Eray DUMAN\source\repos\YazilimSinama\YazilimSinama\obj\Debug\YazilimSinama.AnaEkran.resources
+C:\Users\Eray DUMAN\source\repos\YazilimSinama\YazilimSinama\obj\Debug\YazilimSinama.Properties.Resources.resources
+C:\Users\Eray DUMAN\source\repos\YazilimSinama\YazilimSinama\obj\Debug\YazilimSinama.csproj.GenerateResource.cache
+C:\Users\Eray DUMAN\source\repos\YazilimSinama\YazilimSinama\obj\Debug\YazilimSinama.csproj.CoreCompileInputs.cache
+C:\Users\Eray DUMAN\source\repos\YazilimSinama\YazilimSinama\obj\Debug\YazilimSinama.csproj.CopyComplete
+C:\Users\Eray DUMAN\source\repos\YazilimSinama\YazilimSinama\obj\Debug\YazilimSinama.exe
+C:\Users\Eray DUMAN\source\repos\YazilimSinama\YazilimSinama\obj\Debug\YazilimSinama.pdb
+C:\Users\Eray DUMAN\source\repos\YazilimSinama\YazilimSinama\obj\Debug\YazilimSinama.csproj.AssemblyReference.cache
